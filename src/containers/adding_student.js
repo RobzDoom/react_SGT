@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styles from '../style/styles.css';
 import database from '../database/firebase.js'
 
+
 export default class AddingStudent extends Component{
     constructor(props){
         super(props);
@@ -10,6 +11,8 @@ export default class AddingStudent extends Component{
             name: '',
             course: '',
             grade: '',
+            visible: 'hidden'
+            
         }
 
     }
@@ -17,14 +20,34 @@ export default class AddingStudent extends Component{
     addStudent (){
         const {name, course, grade} = this.state
         //this is the same as name = this.state.name. 
-        database.ref('students').push({
-            name,
-            course,
-            grade
-        })
+            if (name && course && grade){
+            database.ref('students').push({
+                name,
+                course,
+                grade
+            })
+            this.resetForm()
+        }else (
+         this.setState({
+            visible: 'visible'
+         })
+        )
+    }
+    resetForm (){
+        this.setState({  
+            name: '',
+            course: '',
+            grade: '',
+            visible: 'hidden'
+    })       
     }
 
-    render(){
+    render()
+    
+    {
+        const buttonStyle = {background: "#eee",margin: '10px'}
+        const visible = {visibility: this.state.visible}
+
         return(   
             
             <div className="student-add-form form-group pull-right col-sm-4 col-xs-12">
@@ -58,9 +81,9 @@ export default class AddingStudent extends Component{
                                value={this.state.grade}
                                onChange={e => this.setState({grade: e.target.value})}/>
                 </div>
-                    <button type="button" className="btn btn-success " onClick={() => this.addStudent()} id="add_button">Add</button>
-                    <button type="button" className="btn btn-default" onClick="" id="cancel">Cancel</button>
-                   
+                    <h6 style= {visible}>You need to complete buttons</h6>
+                    <button style = {buttonStyle} type="button" className="btn btn-success" onClick={() => this.addStudent()} id="add_button">Add</button>
+                    <button type="button" className="btn btn-default" onClick={() => this.resetForm()} id="cancel">Cancel</button>                 
                 </div>
            
         )
