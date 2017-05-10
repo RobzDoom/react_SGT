@@ -81,7 +81,7 @@ export default class AddingStudent extends Component{
                                value={this.state.grade}
                                onChange={e => this.setState({grade: e.target.value})}/>
                 </div>
-                    <h6 style= {visible}>You need to complete buttons</h6>
+                    <h5 style= {visible}>You need to complete buttons</h5>
                     <button style = {buttonStyle} type="button" className="btn btn-success" onClick={() => this.addStudent()} id="add_button">Add</button>
                     <button type="button" className="btn btn-default" onClick={() => this.resetForm()} id="cancel">Cancel</button>                 
                 </div>
