@@ -11,30 +11,32 @@ export default class AddingStudent extends Component{
             grade: '',
         }
 
-        this.onInputChange1 = this.onInputChange1.bind(this)
-        this.onInputChange2 = this.onInputChange2.bind(this)
-        this.onInputChange3 = this.onInputChange3.bind(this)
     }
 
     //onChange We always get evn obj here.
-    onInputChange1 (event){
-        console.log(event.target.value)
-        this.setState({
-            name: event.target.value,
-        })
-    }
-    onInputChange2 (event){
-        console.log(event.target.value)
-        this.setState({
-            course: event.target.value,
-        })
-    }
-    onInputChange3 (event){
-        console.log(event.target.value)
-        this.setState({
-            grade: event.target.value,
+    // onInputChange1 (event){
+    //     console.log(event.target.value)
+    //     this.setState({
+    //         name: event.target.value,
+    //     })
+    // }
+    // onInputChange2 (event){
+    //     console.log(event.target.value)
+    //     this.setState({
+    //         course: event.target.value,
+    //     })
+    // }
+    // onInputChange3 (event){
+    //     console.log(event.target.value)
+    //     this.setState({
+    //         grade: event.target.value,
             
-        })
+    //     })
+    // }
+
+    addStudent (){
+        let {name, course, grade} = this.state
+        //this is the same as name = this.state.name. 
     }
 
     render(){
@@ -49,7 +51,7 @@ export default class AddingStudent extends Component{
                         <input className="form-control"  
                                placeholder="Student Name" 
                                value={this.state.name}
-                               onChange={this.onInputChange1}
+                               onChange={e => this.setState({name: e.target.value})}
                                />
                 </div>
                 <div className="form-group input-group">
@@ -59,7 +61,7 @@ export default class AddingStudent extends Component{
                         <input className="form-control" 
                             placeholder="Student Course" 
                             value={this.state.course}
-                            onChange={this.onInputChange2}
+                            onChange={e => this.setState({course : e.target.value})}
                             />
                 </div>
                 <div className="form-group input-group">
@@ -69,7 +71,7 @@ export default class AddingStudent extends Component{
                         <input className="form-control" 
                                placeholder="Student Grade" 
                                value={this.state.grade}
-                               onChange={this.onInputChange3}/>
+                               onChange={e => this.setState({grade: e.target.value})}/>
                 </div>
                     <button type="button" className="btn btn-success " onClick="" id="add_button">Add</button>
                     <button type="button" className="btn btn-default" onClick="" id="cancel">Cancel</button>

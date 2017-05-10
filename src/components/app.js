@@ -8,7 +8,6 @@ import styles from '../style/styles.css';
 
 const App = () => (
     <div className={styles.app}>
-        <h1>Welcome to React!</h1>
         <Header />
         <StudentList />
         <AddingStudent />
