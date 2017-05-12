@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import database from '../database/firebase.js';
+import IndividualStudent from './individual_students.js'
 
 export default class StudentList extends Component {
 constructor(){
@@ -15,10 +16,27 @@ componentDidMount (){
             this.setState({
                 listOfStudents: snapshot.val()
             })
-            console.log(this.state.listOfStudents)
+            // console.log(this.state.listOfStudents)
         })
     }
+//-----------------------------------Render Students from React ----------------------------
+    renderStudents (){
+        const {listOfStudents} = this.state;
 
+        if(!listOfStudents){
+            return <tr><td>There are no current students</td></tr>
+        }
+
+        return Object.keys(listOfStudents).map(key => {
+            const ID = listOfStudents[key]
+            console.log(ID)
+            return (
+            <IndividualStudent key={key} grade = {ID.grade} course= {ID.course} name= {ID.name} />
+            )
+
+        })
+
+    }
 
     render(){
         return(
@@ -27,15 +45,12 @@ componentDidMount (){
             <thead>
                 <tr>
                     <th>Student Name</th>
-                    <th>Student ID</th>
                     <th>Student Course</th>
                     <th>Student Grade</th>
                     <th>Operations</th>
                 </tr>
-            </thead>
-            <tbody>
-                This is where the list is suppose to go. 
-            </tbody>
+            </thead>          
+               {this.renderStudents()} 
         </table>
     </div>
         )
