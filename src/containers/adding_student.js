@@ -79,7 +79,9 @@ export default class AddingStudent extends Component{
                         <input className="form-control" 
                                placeholder="Student Grade" 
                                value={this.state.grade}
-                               onChange={e => this.setState({grade: e.target.value})}/>
+                               onChange={e => this.setState({grade: e.target.value})}
+                               type= 'number'
+                               />
                 </div>
                     <h5 style= {visible}>You need to complete buttons</h5>
                     <button style = {buttonStyle} type="button" className="btn btn-success" onClick={() => this.addStudent()} id="add_button">Add</button>
