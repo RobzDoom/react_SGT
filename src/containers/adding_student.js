@@ -33,6 +33,7 @@ export default class AddingStudent extends Component{
          })
         )
     }
+// ---------------------------------Reset the form once student has been added --------------------------
     resetForm (){
         this.setState({  
             name: '',

@@ -15,7 +15,6 @@ componentDidMount (){
             this.setState({
                 listOfStudents: snapshot.val()
             })
-            // console.log(this.state.listOfStudents)
         })
     }
 // -------------------------------Remove Student ------------------------------------
@@ -25,7 +24,7 @@ componentDidMount (){
         studentInfo.child(key).remove();    
     }
     
-//-----------------------------------Render Students from React ----------------------------
+//-----------------------------------Render Students from FireBase ----------------------------
     renderStudents (){
         const {listOfStudents} = this.state;
 
@@ -33,7 +32,7 @@ componentDidMount (){
             return <tbody>
                         <tr><td>There are no current students</td></tr>
                    </tbody>
-        }
+        }        
 
         return Object.keys(listOfStudents).map(key => {
             const ID = listOfStudents[key]

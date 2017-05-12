@@ -3,13 +3,10 @@ import StudentList from './student_list.js'
 import database from '../database/firebase.js'
 
 export default class IndividualStudent extends Component {
-    constructor(props) {
-    super(props);
-    
-    }
-
    render(){
+       
        return (
+           
            <tbody>
                <tr>
                 <td>{this.props.name}</td>
