@@ -8,7 +8,6 @@ constructor(){
         this.state = {
             listOfStudents: {}
         }
-        
     }
 //-------------------------------------Grabbing information from FireBase --------------------------        
 componentDidMount (){
@@ -19,19 +18,28 @@ componentDidMount (){
             // console.log(this.state.listOfStudents)
         })
     }
+// -------------------------------Remove Student ------------------------------------
+  removeStudent (key){
+        console.log('This button has been clicked and my key is', key)
+        const studentInfo = database.ref('students')
+        studentInfo.child(key).remove();    
+    }
+    
 //-----------------------------------Render Students from React ----------------------------
     renderStudents (){
         const {listOfStudents} = this.state;
 
         if(!listOfStudents){
-            return <tr><td>There are no current students</td></tr>
+            return <tbody>
+                        <tr><td>There are no current students</td></tr>
+                   </tbody>
         }
 
         return Object.keys(listOfStudents).map(key => {
             const ID = listOfStudents[key]
             console.log(ID)
             return (
-            <IndividualStudent key={key} grade = {ID.grade} course= {ID.course} name= {ID.name} />
+            <IndividualStudent key={key} grade = {ID.grade} course= {ID.course} name= {ID.name} remove= {() => this.removeStudent(key)}/>
             )
 
         })
