@@ -19,7 +19,6 @@ componentDidMount (){
     }
 // -------------------------------Remove Student ------------------------------------
   removeStudent (key){
-        console.log('This button has been clicked and my key is', key)
         const studentInfo = database.ref('students')
         studentInfo.child(key).remove();    
     }
@@ -36,7 +35,7 @@ componentDidMount (){
 
         return Object.keys(listOfStudents).map(key => {
             const ID = listOfStudents[key]
-            console.log(ID)
+            
             return (
             <IndividualStudent key={key} grade = {ID.grade} course= {ID.course} name= {ID.name} remove= {() => this.removeStudent(key)}/>
             )
