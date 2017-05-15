@@ -1,16 +1,12 @@
-# React Starter
+# Student Grade Table React
 
-> This repo contains boilerplate code to aid in the creation of a new React app with Redux. Follow the below setup instructions to get started.
+> Repository was made to create a Student Grade Table using Google's FireBase.
+  The application was made using React, JavaScript, CSS, and HTML.
+
 
 ### Setup Instructions
 
 > 1. Fork this repo
-1. Clone your forked copy of this repo
-    - `git clone https://github.com/[Your Username]/react_starter.git`
-1. Change directory into the newly cloned repo
-    - `cd react_starter`
-1. Install dependencies 
-    - `npm install`
-1. Start dev server
-    - `npm start`
-1. Open a browser and navigate to `localhost:3000` You should see a page that displays "Welcome to React!"
+1. User is able to add and remove students from data base. 
+
+1. Users are able to add Name, Grade, and Courses for student data. 
