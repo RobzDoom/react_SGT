@@ -37,7 +37,7 @@ componentDidMount (){
             const ID = listOfStudents[key]
             
             return (
-            <IndividualStudent key={key} grade = {ID.grade} course= {ID.course} name= {ID.name} remove= {() => this.removeStudent(key)}/>
+            <IndividualStudent key={key} grade = {ID.grade} course= {ID.course} name= {ID.name} id = {ID} remove= {() => this.removeStudent(key)}/>
             )
 
         })
