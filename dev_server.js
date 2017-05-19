@@ -5,7 +5,7 @@ const config = require('./webpack.config');
 
 new WebpackDevServer(webpack(config), {
     contentBase: resolve(__dirname),
-    publicPath: '/',
+    publicPath: '/dist',
     hot: false,
     historyApiFallback: true,
     quiet: false,
