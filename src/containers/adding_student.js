@@ -19,6 +19,7 @@ export default class AddingStudent extends Component{
 //-----------------------------------Adding Students to list ------------------------------------
     addStudent (){
         const {name, course, grade} = this.state
+        
         //this is the same as name = this.state.name. 
             if (name && course && grade){
             database.ref('students').push({
@@ -46,7 +47,7 @@ export default class AddingStudent extends Component{
     render()
     
     {
-        const buttonStyle = {background: "#eee",margin: '10px'}
+        const buttonStyle = {margin: '10px'}
         const visible = {visibility: this.state.visible}
 
         return(   
@@ -84,8 +85,9 @@ export default class AddingStudent extends Component{
                                type= 'number'
                                />
                 </div>
-                    <h5 style= {visible}>You need to complete buttons</h5>
-                    <button style = {buttonStyle} type="button" className="btn btn-success" onClick={() => this.addStudent()} id="add_button">Add</button>
+                    <h5 style= {visible}>Please fill entire form</h5>
+                    <h5>{this.addStudent}</h5>
+                    <button style = {buttonStyle} max= {100} type="button" className="btn btn-success" onClick={() => this.addStudent()} id="add_button">Add</button>
                     <button type="button" className="btn btn-default" onClick={() => this.resetForm()} id="cancel">Cancel</button>                 
                 </div>
            
